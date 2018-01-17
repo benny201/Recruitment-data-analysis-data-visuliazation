@@ -21,7 +21,7 @@ NEWSPIDER_MODULE = 'Recruitment_data_spider.spiders'
 # # print(BASE_DIR)
 # sys.path.insert(1, os.path.join(BASE_DIR, 'Recruitment_data_spider'))
 
-
+#response.xpath('//*[@id="ip_list"]/tbody')
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-us) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9'
 
