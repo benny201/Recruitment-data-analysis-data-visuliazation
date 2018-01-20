@@ -12,3 +12,8 @@ class RecruitmentDataSpiderItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
     pass
+
+
+class LagouJob(scrapy.item):
+
+    pass

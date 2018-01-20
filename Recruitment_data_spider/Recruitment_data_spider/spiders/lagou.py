@@ -2,10 +2,11 @@
 import scrapy
 from scrapy.http import Request
 from urllib import parse
+import re
 
 class LagouSpider(scrapy.Spider):
     name = 'lagou'
-    allowed_domains = ['www.lagou.com']
+    allowed_domains = ['lagou.com']
     start_urls = ['https://www.lagou.com/zhaopin/Java/']
 
     custom_settings = {
@@ -34,15 +35,30 @@ class LagouSpider(scrapy.Spider):
         #parse the current page
         cur_position_links = response.css('.item_con_list .list_item_top .position_link::attr(href)').extract()
         # print(cur_position_links[0])
-        for link in cur_position_links:
+        for link in cur_position_links[1:2]:
             yield Request(url=parse.urljoin(response.url, link), meta={'url': link}, callback=self.parse_detail)
         # yield Request(url=parse.urljoin(response.url, cur_position_links[0]), meta={'url': cur_position_links[0]}, callback=self.parse_detail)
 
         #extract the next url
-        next_url = response.xpath('//*[@id="s_position_list"]/div[2]/div/a[last()]/@href').extract()[0];
+        next_url = response.xpath('//*[@id="s_position_list"]/div[2]/div/a[last()]/@href').extract()[0]
         pass
 
     def parse_detail(self, response):
         job_url = response.meta.get('url', "")
-        print("this", job_url)
+        job_id = re.search('jobs/(\d+)', job_url).group(1)
+        company_name = response.xpath("//dl[@class='job_company']/dt/a/img/@alt").extract()[0]
+        job_cn_name = response.css('.job-name::attr(title)').extract()[0]
+        # job_en_name = re.search('([a-zA-z0-9]+)', job_cn_name).group(1) + ' Engineer'
+        salary = response.css('.salary::text').extract()[0]
+        city_cn_name = response.xpath("//dd[@class='job_request']/p[1]/span[2]/text()").extract()[0]
+        experience = response.xpath("//dd[@class='job_request']/p[1]/span[3]/text()").extract()[0]
+        degree = response.xpath("//dd[@class='job_request']/p[1]/span[4]/text()").extract()[0]
+        financing_situation = ''
+        for f_item in response.xpath("//ul[@class='c_feature']/li[2]/text()").extract():
+            financing_situation += f_item
+        population = ''
+        for p_item in response.xpath("//ul[@class='c_feature']/li[3]/text()").extract():
+            population += p_item
+        job_desc = response.xpath("//dd[@class='job_bt']/div").extract()[0]
+        # print("this", job_url)
         pass

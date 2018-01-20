@@ -64,6 +64,8 @@ DOWNLOAD_DELAY = 0
 DOWNLOADER_MIDDLEWARES = {
    # 'Recruitment_data_spider.middlewares.RecruitmentDataSpiderDownloaderMiddleware': 543,
    'Recruitment_data_spider.middlewares.RandomUserAgentMiddleware': 1,
+   'Recruitment_data_spider.middlewares.RandomProxyMiddleware': 2,
+
 }
 
 # Enable or disable extensions
