@@ -133,9 +133,9 @@ class RandomUserAgentMiddleware(object):
         #     ua = get_ua()
         #     request.headers.setdefault('User-Agent', get_ua())
 
-        ua = get_ua()
-        request.headers.setdefault('User-Agent', get_ua())
-
+        # ua = get_ua()
+        # request.headers.setdefault('User-Agent', get_ua())
+        request.headers.setdefault('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-us) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9')
 
 class RandomProxyMiddleware(object):
     #更改代理ip

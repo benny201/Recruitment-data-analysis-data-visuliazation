@@ -2,12 +2,27 @@
 import scrapy
 from scrapy.http import Request
 from urllib import parse
+from scrapy.loader import ItemLoader
+from Recruitment_data_spider.items import LagouJobItem
+from w3lib.html import remove_tags
 import re
+
 
 class LagouSpider(scrapy.Spider):
     name = 'lagou'
     allowed_domains = ['lagou.com']
-    start_urls = ['https://www.lagou.com/zhaopin/Java/']
+    # start_urls = ['https://www.lagou.com/zhaopin/Java/']
+    #https://www.lagou.com/zhaopin/PHP/?labelWords=label
+    start_urls = [
+                # 'https://www.lagou.com/zhaopin/PHP/?labelWords=label',
+                #   'https://www.lagou.com/zhaopin/C++/?labelWords=label',
+                  # 'https://www.lagou.com/zhaopin/Java/',
+                  # 'https://www.lagou.com/zhaopin/Python/?labelWords=label',
+                  # 'https://www.lagou.com/zhaopin/jiqixuexi/?labelWords=label',
+                  # 'https://www.lagou.com/zhaopin/shenduxuexi/?labelWords=label',
+                  'https://www.lagou.com/jobs/list_前端?labelWords=&fromSearch=true&suginput=',
+                  # 'https://www.lagou.com/jobs/list_%E5%90%8E%E7%AB%AF?labelWords=&fromSearch=true&suginput='
+                 ]
 
     custom_settings = {
         "COOKIES_ENABLED": False,
@@ -35,12 +50,14 @@ class LagouSpider(scrapy.Spider):
         #parse the current page
         cur_position_links = response.css('.item_con_list .list_item_top .position_link::attr(href)').extract()
         # print(cur_position_links[0])
-        for link in cur_position_links[1:2]:
+        for link in cur_position_links:
             yield Request(url=parse.urljoin(response.url, link), meta={'url': link}, callback=self.parse_detail)
         # yield Request(url=parse.urljoin(response.url, cur_position_links[0]), meta={'url': cur_position_links[0]}, callback=self.parse_detail)
 
         #extract the next url
         next_url = response.xpath('//*[@id="s_position_list"]/div[2]/div/a[last()]/@href').extract()[0]
+        yield Request(url=parse.urljoin(response.url, next_url), callback=self.parse)
+
         pass
 
     def parse_detail(self, response):
@@ -49,16 +66,29 @@ class LagouSpider(scrapy.Spider):
         company_name = response.xpath("//dl[@class='job_company']/dt/a/img/@alt").extract()[0]
         job_cn_name = response.css('.job-name::attr(title)').extract()[0]
         # job_en_name = re.search('([a-zA-z0-9]+)', job_cn_name).group(1) + ' Engineer'
-        salary = response.css('.salary::text').extract()[0]
-        city_cn_name = response.xpath("//dd[@class='job_request']/p[1]/span[2]/text()").extract()[0]
-        experience = response.xpath("//dd[@class='job_request']/p[1]/span[3]/text()").extract()[0]
-        degree = response.xpath("//dd[@class='job_request']/p[1]/span[4]/text()").extract()[0]
-        financing_situation = ''
-        for f_item in response.xpath("//ul[@class='c_feature']/li[2]/text()").extract():
-            financing_situation += f_item
-        population = ''
-        for p_item in response.xpath("//ul[@class='c_feature']/li[3]/text()").extract():
-            population += p_item
-        job_desc = response.xpath("//dd[@class='job_bt']/div").extract()[0]
-        # print("this", job_url)
-        pass
+        salary = response.css('.salary::text').extract()[0].strip()
+        city_cn_name = response.xpath("//dd[@class='job_request']/p[1]/span[2]/text()").extract()[0].replace("/", "").strip()
+        experience = response.xpath("//dd[@class='job_request']/p[1]/span[3]/text()").extract()[0].replace("/", "").strip()
+        degree = response.xpath("//dd[@class='job_request']/p[1]/span[4]/text()").extract()[0].replace("/", "").strip()
+        financing_situation = response.xpath("//i[@class='icon-glyph-trend']/../text()").extract()[1].strip()
+        # for f_item in response.xpath("//ul[@class='c_feature']/li[2]/text()").extract():
+        #     financing_situation += f_item
+        population = response.xpath("//i[@class='icon-glyph-figure']/../text()").extract()[1].strip()
+        # for p_item in response.xpath("//ul[@class='c_feature']/li[3]/text()").extract():
+        #     population += p_item
+        job_desc = remove_tags(response.xpath("//dd[@class='job_bt']/div").extract()[0]).strip()
+
+        lagou_item = LagouJobItem()
+        lagou_item["job_url"] = job_url
+        lagou_item["job_id"] = job_id
+        lagou_item["job_cn_name"] = job_cn_name
+        lagou_item["company_name"] = company_name
+        lagou_item["salary"] = salary
+        lagou_item["city_cn_name"] = city_cn_name
+        lagou_item["experience"] = experience
+        lagou_item["degree"] = degree
+        lagou_item["financing_situation"] = financing_situation
+        lagou_item["population"] = population
+        lagou_item["job_desc"] = job_desc
+
+        yield lagou_item

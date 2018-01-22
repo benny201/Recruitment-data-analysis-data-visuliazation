@@ -25,13 +25,13 @@ NEWSPIDER_MODULE = 'Recruitment_data_spider.spiders'
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 # USER_AGENT = 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en-us) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9'
 
-RANDOM_UA_TYPE = 'random'
+RANDOM_UA_TYPE = 'chrome'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
-#CONCURRENT_REQUESTS = 32
+CONCURRENT_REQUESTS = 32
 
 # Configure a delay for requests for the same website (default: 0)
 # See https://doc.scrapy.org/en/latest/topics/settings.html#download-delay
@@ -76,9 +76,12 @@ DOWNLOADER_MIDDLEWARES = {
 
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
-#ITEM_PIPELINES = {
-#    'Recruitment_data_spider.pipelines.RecruitmentDataSpiderPipeline': 300,
-#}
+ITEM_PIPELINES = {
+   # 'Recruitment_data_spider.pipelines.RecruitmentDataSpiderPipeline': 300,
+   # 'Recruitment_data_spider.pipelines.MySqlPipeline': 1,
+   'Recruitment_data_spider.pipelines.LagouAllJobPipeline': 1,
+
+}
 
 # Enable and configure the AutoThrottle extension (disabled by default)
 # See https://doc.scrapy.org/en/latest/topics/autothrottle.html
