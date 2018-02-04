@@ -1,0 +1,22 @@
+body {
+    background-color: #f2f3f2 !important;
+}
+
+#title {
+    text-align: center;
+    height: 100px;
+}
+
+#chart-1 {
+    border: 1px solid black ;
+    /*height: 500px;*/
+}
+
+.arc text {
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+
+.arc path {
+  stroke: #fff;
+}

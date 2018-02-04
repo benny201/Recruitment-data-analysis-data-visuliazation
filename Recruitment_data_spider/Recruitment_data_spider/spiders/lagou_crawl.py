@@ -60,19 +60,12 @@ class LagouCrawlSpider(CrawlSpider):
         job_id = re.search('jobs/(\d+)', job_url).group(1)
         company_name = response.xpath("//dl[@class='job_company']/dt/a/img/@alt").extract()[0]
         job_cn_name = response.css('.job-name::attr(title)').extract()[0]
-        # job_en_name = re.search('([a-zA-z0-9]+)', job_cn_name).group(1) + ' Engineer'
         salary = response.css('.salary::text').extract()[0].strip()
-        city_cn_name = response.xpath("//dd[@class='job_request']/p[1]/span[2]/text()").extract()[0].replace("/",
-                                                                                                             "").strip()
-        experience = response.xpath("//dd[@class='job_request']/p[1]/span[3]/text()").extract()[0].replace("/",
-                                                                                                           "").strip()
+        city_cn_name = response.xpath("//dd[@class='job_request']/p[1]/span[2]/text()").extract()[0].replace("/", "").strip()
+        experience = response.xpath("//dd[@class='job_request']/p[1]/span[3]/text()").extract()[0].replace("/", "").strip()
         degree = response.xpath("//dd[@class='job_request']/p[1]/span[4]/text()").extract()[0].replace("/", "").strip()
         financing_situation = response.xpath("//i[@class='icon-glyph-trend']/../text()").extract()[1].strip()
-        # for f_item in response.xpath("//ul[@class='c_feature']/li[2]/text()").extract():
-        #     financing_situation += f_item
         population = response.xpath("//i[@class='icon-glyph-figure']/../text()").extract()[1].strip()
-        # for p_item in response.xpath("//ul[@class='c_feature']/li[3]/text()").extract():
-        #     population += p_item
         job_desc = remove_tags(response.xpath("//dd[@class='job_bt']/div").extract()[0]).strip()
 
         lagou_item = LagouJobItem()
