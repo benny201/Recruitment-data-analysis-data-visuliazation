@@ -17,7 +17,7 @@ def get_company_population(request):
     result = []
 
     for type in popu_type:
-        query_sql = """select count(*) from company_list where population=\'{0}\' """.format(type)
+        query_sql = """select count(*) from all_company_list where population=\'{0}\' """.format(type)
         cursor.execute(query_sql)
         # print(cursor.fetchone()[0])
         result.append({
@@ -38,3 +38,35 @@ def get_company_population(request):
 
 # get_company_population()
 # print(get_company_population())
+
+# get job opportuinities
+def get_job_opportunities(request):
+    get_cities_list_query = """select distinct city_cn_name from lagou_all_data"""
+    cursor.execute(get_cities_list_query)
+    cities_list = cursor.fetchall()
+    cities = []
+    result=[]
+    for city in cities_list:
+        cities.append(city[0])
+    # print(cities)
+
+    for city in cities:
+        get_job_opportunities_query = """select count(*) from lagou_all_data where city_cn_name=\'{0}\' """.format(city)
+        cursor.execute(get_job_opportunities_query)
+        tempvalue = {
+            'name': city,
+            'value': cursor.fetchone()[0]
+        }
+        result.append(tempvalue)
+
+    # return result
+    message = 'ok'
+    if not result:
+        message = 'Data Not Found'
+
+    return JsonResponse({
+        'message': message,
+        'data': result
+    })
+
+# get_job_opportunities()

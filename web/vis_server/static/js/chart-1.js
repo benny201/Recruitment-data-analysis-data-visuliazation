@@ -1,8 +1,5 @@
-
-
 // chart 1 - pie chart for companies and population
 // type: less than 15 / 15 - 50 / 50 - 150 / 150 - 500 / 500 - 2000 / more than 2000
-var data = [10, 20, 100, 120, 123, 124];
 
 function draw_pie_chart(data) {
     var width = $("#chart-1").width(),
@@ -61,20 +58,17 @@ function draw_pie_chart(data) {
 
 // draw_pie_chart(data);
 
-console.log(1);
 
-function getData() {
+function get_chart_1_data() {
     $.ajax({
         type:'get',
         url:'http://127.0.0.1:8000/get_company_population/',
         success: function (data) {
-            console.log(data)
+            // console.log(data)
             draw_pie_chart(data.data)
         }
     })
 }
 
-getData();
-
-
-
+// draw charts
+get_chart_1_data();

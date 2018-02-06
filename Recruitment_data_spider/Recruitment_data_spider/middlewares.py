@@ -141,26 +141,7 @@ class RandomProxyMiddleware(object):
     #更改代理ip
     def process_request(self, request, spider):
         proxy_ips = [
-            'http://f8310c05f6:jJqT75pf@104.227.62.143:4444',
-            'http://f8310c05f6:jJqT75pf@104.227.6.47:4444',
-            'http://f8310c05f6:jJqT75pf@104.227.62.143:4444',
-            'http://f8310c05f6:jJqT75pf@107.152.198.15:4444',
-            'http://f8310c05f6:jJqT75pf@107.152.254.94:4444',
-            'http://f8310c05f6:jJqT75pf@198.20.178.247:4444',
-            'http://f8310c05f6:jJqT75pf@198.20.180.214:4444',
-            'http://f8310c05f6:jJqT75pf@198.20.180.214:4444',
-            'http://f8310c05f6:jJqT75pf@23.254.10.201:4444',
-            'http://f8310c05f6:jJqT75pf@23.254.3.189:4444',
-            'http://f8310c05f6:jJqT75pf@104.144.129.185:4444',
-            'http://f8310c05f6:jJqT75pf@104.144.197.81:4444',
-            'http://f8310c05f6:jJqT75pf@107.152.240.79:4444',
-            'http://f8310c05f6:jJqT75pf@138.128.51.251:4444',
-            'http://f8310c05f6:jJqT75pf@192.186.168.227:4444',
-            'http://f8310c05f6:jJqT75pf@192.241.84.127:4444',
-            'http://f8310c05f6:jJqT75pf@198.154.82.181:4444',
-            'http://f8310c05f6:jJqT75pf@23.254.11.161:4444',
-            'http://f8310c05f6:jJqT75pf@23.254.17.77:4444',
-            'http://f8310c05f6:jJqT75pf@45.72.3.253:4444'
+            'http://104.227.62.143:4444'
         ]
 
         request.meta['proxy'] = proxy_ips[random.randint(0, proxy_ips.__len__() - 1)]

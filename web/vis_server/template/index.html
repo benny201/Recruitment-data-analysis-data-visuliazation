@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="/static/css/main.css">
 </head>
 <body>
+
     <div class="row">
         <div class="col-md-1"></div>
         <div class="col-md-10">
@@ -15,11 +16,53 @@
         <div class="col-md-1"></div>
     </div>
 
+
     <!--chart - 1, pie chart, relation between population and companies -->
     <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h3>Quantitative distribution of companies</h3>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
         <div class="col-md-4"></div>
-        <div id="chart-1" class="col-md-4">
+        <div id="chart-1" class="col-md-4 ">
 
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+    <!--chart - 2, Map for job opportunities -->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h3>Location distribution of job opportunities</h3>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div id="chart-2" class="col-md-4">
+
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+
+    <!--chart - 3, Grouped bar char for funding type -->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h3>Funding type distribution of companies in main cities</h3>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div id="chart-3" class="col-md-4">
+            <svg id="chart-3-svg" width="960" height="500"></svg>
         </div>
         <div class="col-md-4"></div>
     </div>
@@ -28,7 +71,11 @@
 
 
     <script src="https://d3js.org/d3.v4.js"></script>
+    <script src="http://echarts.baidu.com/dist/echarts.js"></script>
+    <script src="/static/js/china.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
-    <script src="/static/js/graph.js"></script>
+    <script src="/static/js/chart-1.js"></script>
+    <script src="/static/js/chart-2.js"></script>
+    <script src="/static/js/chart-3.js"></script>
 </body>
 </html>
