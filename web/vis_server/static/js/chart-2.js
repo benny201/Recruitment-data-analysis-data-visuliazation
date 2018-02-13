@@ -1,783 +1,783 @@
-// chart 2 - Map chart for job opportunities
-
 var data = [
     {
-      "name": "上海",
-      "value": 22577
+        "name": "上海",
+        "value": 22577
     },
     {
-      "name": "西安",
-      "value": 1925
+        "name": "西安",
+        "value": 1925
     },
     {
-      "name": "苏州",
-      "value": 1687
+        "name": "苏州",
+        "value": 1687
     },
     {
-      "name": "深圳",
-      "value": 20776
+        "name": "深圳",
+        "value": 20776
     },
     {
-      "name": "北京",
-      "value": 38646
+        "name": "北京",
+        "value": 38646
     },
     {
-      "name": "广州",
-      "value": 16665
+        "name": "广州",
+        "value": 16665
     },
     {
-      "name": "长沙",
-      "value": 2085
+        "name": "长沙",
+        "value": 2085
     },
     {
-      "name": "杭州",
-      "value": 13068
+        "name": "杭州",
+        "value": 13068
     },
     {
-      "name": "南京",
-      "value": 2797
+        "name": "南京",
+        "value": 2797
     },
     {
-      "name": "武汉",
-      "value": 4513
+        "name": "武汉",
+        "value": 4513
     },
     {
-      "name": "天津",
-      "value": 1237
+        "name": "天津",
+        "value": 1237
     },
     {
-      "name": "宁波",
-      "value": 268
+        "name": "宁波",
+        "value": 268
     },
     {
-      "name": "成都",
-      "value": 6800
+        "name": "成都",
+        "value": 6800
     },
     {
-      "name": "厦门",
-      "value": 2209
+        "name": "厦门",
+        "value": 2209
     },
     {
-      "name": "重庆",
-      "value": 1418
+        "name": "重庆",
+        "value": 1418
     },
     {
-      "name": "福州",
-      "value": 647
+        "name": "福州",
+        "value": 647
     },
     {
-      "name": "合肥",
-      "value": 848
+        "name": "合肥",
+        "value": 848
     },
     {
-      "name": "无锡",
-      "value": 319
+        "name": "无锡",
+        "value": 319
     },
     {
-      "name": "济南",
-      "value": 772
+        "name": "济南",
+        "value": 772
     },
     {
-      "name": "东莞",
-      "value": 460
+        "name": "东莞",
+        "value": 460
     },
     {
-      "name": "郑州",
-      "value": 1391
+        "name": "郑州",
+        "value": 1391
     },
     {
-      "name": "佛山",
-      "value": 534
+        "name": "佛山",
+        "value": 534
     },
     {
-      "name": "青岛",
-      "value": 790
+        "name": "青岛",
+        "value": 790
     },
     {
-      "name": "珠海",
-      "value": 306
+        "name": "珠海",
+        "value": 306
     },
     {
-      "name": "中山",
-      "value": 59
+        "name": "中山",
+        "value": 59
     },
     {
-      "name": "烟台",
-      "value": 58
+        "name": "烟台",
+        "value": 58
     },
     {
-      "name": "泉州",
-      "value": 72
+        "name": "泉州",
+        "value": 72
     },
     {
-      "name": "昆明",
-      "value": 184
+        "name": "昆明",
+        "value": 184
     },
     {
-      "name": "大连",
-      "value": 395
+        "name": "大连",
+        "value": 395
     },
     {
-      "name": "南昌",
-      "value": 240
+        "name": "南昌",
+        "value": 240
     },
     {
-      "name": "太原",
-      "value": 157
+        "name": "太原",
+        "value": 157
     },
     {
-      "name": "南宁",
-      "value": 172
+        "name": "南宁",
+        "value": 172
     },
     {
-      "name": "河池",
-      "value": 1
+        "name": "河池",
+        "value": 1
     },
     {
-      "name": "新乡",
-      "value": 4
+        "name": "新乡",
+        "value": 4
     },
     {
-      "name": "贵阳",
-      "value": 112
+        "name": "贵阳",
+        "value": 112
     },
     {
-      "name": "嘉兴",
-      "value": 64
+        "name": "嘉兴",
+        "value": 64
     },
     {
-      "name": "石家庄",
-      "value": 259
+        "name": "石家庄",
+        "value": 259
     },
     {
-      "name": "临沂",
-      "value": 53
+        "name": "临沂",
+        "value": 53
     },
     {
-      "name": "惠州",
-      "value": 80
+        "name": "惠州",
+        "value": 80
     },
     {
-      "name": "潍坊",
-      "value": 39
+        "name": "潍坊",
+        "value": 39
     },
     {
-      "name": "沈阳",
-      "value": 298
+        "name": "沈阳",
+        "value": 298
     },
     {
-      "name": "海口",
-      "value": 13
+        "name": "海口",
+        "value": 13
     },
     {
-      "name": "廊坊",
-      "value": 49
+        "name": "廊坊",
+        "value": 49
     },
     {
-      "name": "广元",
-      "value": 1
+        "name": "广元",
+        "value": 1
     },
     {
-      "name": "湛江",
-      "value": 9
+        "name": "湛江",
+        "value": 9
     },
     {
-      "name": "温州",
-      "value": 77
+        "name": "温州",
+        "value": 77
     },
     {
-      "name": "衢州",
-      "value": 6
+        "name": "衢州",
+        "value": 6
     },
     {
-      "name": "德州",
-      "value": 14
+        "name": "德州",
+        "value": 14
     },
     {
-      "name": "哈尔滨",
-      "value": 57
+        "name": "哈尔滨",
+        "value": 57
     },
     {
-      "name": "镇江",
-      "value": 13
+        "name": "镇江",
+        "value": 13
     },
     {
-      "name": "湖州",
-      "value": 13
+        "name": "湖州",
+        "value": 13
     },
     {
-      "name": "保定",
-      "value": 71
+        "name": "保定",
+        "value": 71
     },
     {
-      "name": "常州",
-      "value": 92
+        "name": "常州",
+        "value": 92
     },
     {
-      "name": "桂林",
-      "value": 26
+        "name": "桂林",
+        "value": 26
     },
     {
-      "name": "三亚",
-      "value": 3
+        "name": "三亚",
+        "value": 3
     },
     {
-      "name": "丽水",
-      "value": 7
+        "name": "丽水",
+        "value": 7
     },
     {
-      "name": "唐山",
-      "value": 55
+        "name": "唐山",
+        "value": 55
     },
     {
-      "name": "南阳",
-      "value": 18
+        "name": "南阳",
+        "value": 18
     },
     {
-      "name": "吉林",
-      "value": 1
+        "name": "吉林",
+        "value": 1
     },
     {
-      "name": "金华",
-      "value": 58
+        "name": "金华",
+        "value": 58
     },
     {
-      "name": "扬州",
-      "value": 24
+        "name": "扬州",
+        "value": 24
     },
     {
-      "name": "徐州",
-      "value": 50
+        "name": "徐州",
+        "value": 50
     },
     {
-      "name": "赣州",
-      "value": 4
+        "name": "赣州",
+        "value": 4
     },
     {
-      "name": "兰州",
-      "value": 51
+        "name": "兰州",
+        "value": 51
     },
     {
-      "name": "梅州",
-      "value": 4
+        "name": "梅州",
+        "value": 4
     },
     {
-      "name": "拉萨",
-      "value": 2
+        "name": "拉萨",
+        "value": 2
     },
     {
-      "name": "南通",
-      "value": 30
+        "name": "南通",
+        "value": 30
     },
     {
-      "name": "绵阳",
-      "value": 9
+        "name": "绵阳",
+        "value": 9
     },
     {
-      "name": "包头",
-      "value": 13
+        "name": "包头",
+        "value": 13
     },
     {
-      "name": "济宁",
-      "value": 17
+        "name": "济宁",
+        "value": 17
     },
     {
-      "name": "抚州",
-      "value": 3
+        "name": "抚州",
+        "value": 3
     },
     {
-      "name": "漳州",
-      "value": 12
+        "name": "漳州",
+        "value": 12
     },
     {
-      "name": "遵义",
-      "value": 7
+        "name": "遵义",
+        "value": 7
     },
     {
-      "name": "长春",
-      "value": 44
+        "name": "长春",
+        "value": 44
     },
     {
-      "name": "盐城",
-      "value": 5
+        "name": "盐城",
+        "value": 5
     },
     {
-      "name": "威海",
-      "value": 23
+        "name": "威海",
+        "value": 23
     },
     {
-      "name": "绍兴",
-      "value": 9
+        "name": "绍兴",
+        "value": 9
     },
     {
-      "name": "呼和浩特",
-      "value": 32
+        "name": "呼和浩特",
+        "value": 32
     },
     {
-      "name": "淄博",
-      "value": 16
+        "name": "淄博",
+        "value": 16
     },
     {
-      "name": "银川",
-      "value": 9
+        "name": "银川",
+        "value": 9
     },
     {
-      "name": "信阳",
-      "value": 4
+        "name": "信阳",
+        "value": 4
     },
     {
-      "name": "黄山",
-      "value": 1
+        "name": "黄山",
+        "value": 1
     },
     {
-      "name": "秦皇岛",
-      "value": 7
+        "name": "秦皇岛",
+        "value": 7
     },
     {
-      "name": "沧州",
-      "value": 11
+        "name": "沧州",
+        "value": 11
     },
     {
-      "name": "衡阳",
-      "value": 9
+        "name": "衡阳",
+        "value": 9
     },
     {
-      "name": "邢台",
-      "value": 4
+        "name": "邢台",
+        "value": 4
     },
     {
-      "name": "东营",
-      "value": 5
+        "name": "东营",
+        "value": 5
     },
     {
-      "name": "柳州",
-      "value": 9
+        "name": "柳州",
+        "value": 9
     },
     {
-      "name": "台州",
-      "value": 7
+        "name": "台州",
+        "value": 7
     },
     {
-      "name": "宜昌",
-      "value": 6
+        "name": "宜昌",
+        "value": 6
     },
     {
-      "name": "永州",
-      "value": 2
+        "name": "永州",
+        "value": 2
     },
     {
-      "name": "乐山",
-      "value": 1
+        "name": "乐山",
+        "value": 1
     },
     {
-      "name": "宿州",
-      "value": 2
+        "name": "宿州",
+        "value": 2
     },
     {
-      "name": "常德",
-      "value": 4
+        "name": "常德",
+        "value": 4
     },
     {
-      "name": "开封",
-      "value": 3
+        "name": "开封",
+        "value": 3
     },
     {
-      "name": "盘锦",
-      "value": 6
+        "name": "盘锦",
+        "value": 6
     },
     {
-      "name": "洛阳",
-      "value": 22
+        "name": "洛阳",
+        "value": 22
     },
     {
-      "name": "芜湖",
-      "value": 22
+        "name": "芜湖",
+        "value": 22
     },
     {
-      "name": "西宁",
-      "value": 2
+        "name": "西宁",
+        "value": 2
     },
     {
-      "name": "朝阳",
-      "value": 2
+        "name": "朝阳",
+        "value": 2
     },
     {
-      "name": "日照",
-      "value": 1
+        "name": "日照",
+        "value": 1
     },
     {
-      "name": "汕头",
-      "value": 9
+        "name": "汕头",
+        "value": 9
     },
     {
-      "name": "揭阳",
-      "value": 7
+        "name": "揭阳",
+        "value": 7
     },
     {
-      "name": "遂宁",
-      "value": 3
+        "name": "遂宁",
+        "value": 3
     },
     {
-      "name": "邯郸",
-      "value": 10
+        "name": "邯郸",
+        "value": 10
     },
     {
-      "name": "鞍山",
-      "value": 2
+        "name": "鞍山",
+        "value": 2
     },
     {
-      "name": "蚌埠",
-      "value": 5
+        "name": "蚌埠",
+        "value": 5
     },
     {
-      "name": "阜阳",
-      "value": 2
+        "name": "阜阳",
+        "value": 2
     },
     {
-      "name": "江门",
-      "value": 6
+        "name": "江门",
+        "value": 6
     },
     {
-      "name": "泰州",
-      "value": 3
+        "name": "泰州",
+        "value": 3
     },
     {
-      "name": "淮安",
-      "value": 13
+        "name": "淮安",
+        "value": 13
     },
     {
-      "name": "张家口",
-      "value": 3
+        "name": "张家口",
+        "value": 3
     },
     {
-      "name": "咸阳",
-      "value": 4
+        "name": "咸阳",
+        "value": 4
     },
     {
-      "name": "乌鲁木齐",
-      "value": 1
+        "name": "乌鲁木齐",
+        "value": 1
     },
     {
-      "name": "荆州",
-      "value": 2
+        "name": "荆州",
+        "value": 2
     },
     {
-      "name": "肇庆",
-      "value": 13
+        "name": "肇庆",
+        "value": 13
     },
     {
-      "name": "菏泽",
-      "value": 5
+        "name": "菏泽",
+        "value": 5
     },
     {
-      "name": "莆田",
-      "value": 7
+        "name": "莆田",
+        "value": 7
     },
     {
-      "name": "商丘",
-      "value": 6
+        "name": "商丘",
+        "value": 6
     },
     {
-      "name": "临汾",
-      "value": 1
+        "name": "临汾",
+        "value": 1
     },
     {
-      "name": "上饶",
-      "value": 4
+        "name": "上饶",
+        "value": 4
     },
     {
-      "name": "池州",
-      "value": 1
+        "name": "池州",
+        "value": 1
     },
     {
-      "name": "阳江",
-      "value": 3
+        "name": "阳江",
+        "value": 3
     },
     {
-      "name": "营口",
-      "value": 4
+        "name": "营口",
+        "value": 4
     },
     {
-      "name": "梧州",
-      "value": 2
+        "name": "梧州",
+        "value": 2
     },
     {
-      "name": "丹东",
-      "value": 1
+        "name": "丹东",
+        "value": 1
     },
     {
-      "name": "滁州",
-      "value": 7
+        "name": "滁州",
+        "value": 7
     },
     {
-      "name": "韶关",
-      "value": 3
+        "name": "韶关",
+        "value": 3
     },
     {
-      "name": "赤峰",
-      "value": 4
+        "name": "赤峰",
+        "value": 4
     },
     {
-      "name": "榆林",
-      "value": 5
+        "name": "榆林",
+        "value": 5
     },
     {
-      "name": "渭南",
-      "value": 2
+        "name": "渭南",
+        "value": 2
     },
     {
-      "name": "延安",
-      "value": 1
+        "name": "延安",
+        "value": 1
     },
     {
-      "name": "清远",
-      "value": 3
+        "name": "清远",
+        "value": 3
     },
     {
-      "name": "河源",
-      "value": 4
+        "name": "河源",
+        "value": 4
     },
     {
-      "name": "十堰",
-      "value": 2
+        "name": "十堰",
+        "value": 2
     },
     {
-      "name": "毕节",
-      "value": 1
+        "name": "毕节",
+        "value": 1
     },
     {
-      "name": "黔南",
-      "value": 1
+        "name": "黔南",
+        "value": 1
     },
     {
-      "name": "黔东南",
-      "value": 3
+        "name": "黔东南",
+        "value": 3
     },
     {
-      "name": "攀枝花",
-      "value": 1
+        "name": "攀枝花",
+        "value": 1
     },
     {
-      "name": "淮南",
-      "value": 4
+        "name": "淮南",
+        "value": 4
     },
     {
-      "name": "株洲",
-      "value": 2
+        "name": "株洲",
+        "value": 2
     },
     {
-      "name": "滨州",
-      "value": 4
+        "name": "滨州",
+        "value": 4
     },
     {
-      "name": "淮北",
-      "value": 1
+        "name": "淮北",
+        "value": 1
     },
     {
-      "name": "宜宾",
-      "value": 1
+        "name": "宜宾",
+        "value": 1
     },
     {
-      "name": "贺州",
-      "value": 1
+        "name": "贺州",
+        "value": 1
     },
     {
-      "name": "马鞍山",
-      "value": 7
+        "name": "马鞍山",
+        "value": 7
     },
     {
-      "name": "舟山",
-      "value": 3
+        "name": "舟山",
+        "value": 3
     },
     {
-      "name": "晋城",
-      "value": 1
+        "name": "晋城",
+        "value": 1
     },
     {
-      "name": "泰安",
-      "value": 3
+        "name": "泰安",
+        "value": 3
     },
     {
-      "name": "鹤壁",
-      "value": 3
+        "name": "鹤壁",
+        "value": 3
     },
     {
-      "name": "连云港",
-      "value": 5
+        "name": "连云港",
+        "value": 5
     },
     {
-      "name": "宝鸡",
-      "value": 1
+        "name": "宝鸡",
+        "value": 1
     },
     {
-      "name": "德阳",
-      "value": 1
+        "name": "德阳",
+        "value": 1
     },
     {
-      "name": "铜陵",
-      "value": 1
+        "name": "铜陵",
+        "value": 1
     },
     {
-      "name": "漯河",
-      "value": 1
+        "name": "漯河",
+        "value": 1
     },
     {
-      "name": "北海",
-      "value": 2
+        "name": "北海",
+        "value": 2
     },
     {
-      "name": "锦州",
-      "value": 1
+        "name": "锦州",
+        "value": 1
     },
     {
-      "name": "安阳",
-      "value": 1
+        "name": "安阳",
+        "value": 1
     },
     {
-      "name": "大庆",
-      "value": 1
+        "name": "大庆",
+        "value": 1
     },
     {
-      "name": "宿迁",
-      "value": 1
+        "name": "宿迁",
+        "value": 1
     },
     {
-      "name": "潮州",
-      "value": 1
+        "name": "潮州",
+        "value": 1
     },
     {
-      "name": "云浮",
-      "value": 1
+        "name": "云浮",
+        "value": 1
     },
     {
-      "name": "九江",
-      "value": 2
+        "name": "九江",
+        "value": 2
     },
     {
-      "name": "枣庄",
-      "value": 1
+        "name": "枣庄",
+        "value": 1
     },
     {
-      "name": "承德",
-      "value": 1
+        "name": "承德",
+        "value": 1
     },
     {
-      "name": "黄冈",
-      "value": 1
+        "name": "黄冈",
+        "value": 1
     },
     {
-      "name": "南充",
-      "value": 3
+        "name": "南充",
+        "value": 3
     },
     {
-      "name": "武威",
-      "value": 1
+        "name": "武威",
+        "value": 1
     },
     {
-      "name": "大同",
-      "value": 1
+        "name": "大同",
+        "value": 1
     },
     {
-      "name": "岳阳",
-      "value": 1
+        "name": "岳阳",
+        "value": 1
     },
     {
-      "name": "玉溪",
-      "value": 1
+        "name": "玉溪",
+        "value": 1
     },
     {
-      "name": "安康",
-      "value": 2
+        "name": "安康",
+        "value": 2
     },
     {
-      "name": "西双版纳",
-      "value": 1
+        "name": "西双版纳",
+        "value": 1
     },
     {
-      "name": "咸宁",
-      "value": 2
+        "name": "咸宁",
+        "value": 2
     },
     {
-      "name": "郴州",
-      "value": 3
+        "name": "郴州",
+        "value": 3
     },
     {
-      "name": "长治",
-      "value": 1
+        "name": "长治",
+        "value": 1
     },
     {
-      "name": "襄阳",
-      "value": 1
+        "name": "襄阳",
+        "value": 1
     },
     {
-      "name": "三门峡",
-      "value": 1
+        "name": "三门峡",
+        "value": 1
     },
     {
-      "name": "安顺",
-      "value": 1
+        "name": "安顺",
+        "value": 1
     },
     {
-      "name": "晋中",
-      "value": 5
+        "name": "晋中",
+        "value": 5
     },
     {
-      "name": "吉安",
-      "value": 1
+        "name": "吉安",
+        "value": 1
     },
     {
-      "name": "怀化",
-      "value": 1
+        "name": "怀化",
+        "value": 1
     },
     {
-      "name": "丽江",
-      "value": 2
+        "name": "丽江",
+        "value": 2
     },
     {
-      "name": "龙岩",
-      "value": 1
+        "name": "龙岩",
+        "value": 1
     },
     {
-      "name": "宜春",
-      "value": 1
+        "name": "宜春",
+        "value": 1
     },
     {
-      "name": "衡水",
-      "value": 2
+        "name": "衡水",
+        "value": 2
     },
     {
-      "name": "贵港",
-      "value": 1
+        "name": "贵港",
+        "value": 1
     },
     {
-      "name": "周口",
-      "value": 3
+        "name": "周口",
+        "value": 3
     },
     {
-      "name": "鄂州",
-      "value": 1
+        "name": "鄂州",
+        "value": 1
     },
     {
-      "name": "安庆",
-      "value": 1
+        "name": "安庆",
+        "value": 1
     },
     {
-      "name": "运城",
-      "value": 1
+        "name": "运城",
+        "value": 1
     },
     {
-      "name": "宣城",
-      "value": 1
+        "name": "宣城",
+        "value": 1
     },
     {
-      "name": "黔西南",
-      "value": 2
+        "name": "黔西南",
+        "value": 2
     },
     {
-      "name": "六安",
-      "value": 1
+        "name": "六安",
+        "value": 1
     }
-  ]
+]
+
+// chart 2 - Map chart for job opportunities
 
 
 function get_job_opportunities(geo_data) {
@@ -1074,6 +1074,10 @@ option = {
                     borderWidth: 1
                 }
             },
+            scaleLimit: {
+                min:1,
+                max:3
+            }
             // layoutCenter: ['100%', '100%'],
             // layoutSize:100
         }

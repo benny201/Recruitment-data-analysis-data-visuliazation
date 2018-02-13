@@ -7,8 +7,8 @@ function draw_pie_chart(data) {
         radius = 200;
 
     var color = d3.scaleOrdinal()
-        .range(["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]);
-
+        // .range(["#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd", "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22", "#17becf"]);
+        .range(["#98abc5", "#8a89a6", "#a05d56", "#d0743c", "#ff8c00"]);
     var arc = d3.arc()
         .outerRadius(radius - 10)
         .innerRadius(0)
@@ -36,12 +36,22 @@ function draw_pie_chart(data) {
 
     g.append("path")
       .attr("d", arc)
+        .attr("id", function(d, i) { return "arc-" + i })
       .style("fill", function(d) { return color(d.value); });
 
     g.append("text")
       .attr("transform", function(d) { return "translate(" + labelArc.centroid(d) + ")"; })
       .attr("dy", ".35em")
+      .style("font-weight", 'bold')
+        .style("font-size", 'medium')
       .text(function(d) { return d.value; });
+
+    g.append("text")
+        .attr("dx", 45)
+        .attr("dy", -10)
+        .append("textPath")
+        .attr("xlink:href", function(d, i) { return "#arc-" + i; })
+        .text(function(d) { console.log(d);return d.data.range })
 
     // g.append("text")
     //     .attr("dx", 30)
@@ -72,3 +82,8 @@ function get_chart_1_data() {
 
 // draw charts
 get_chart_1_data();
+
+
+
+
+

@@ -17,7 +17,7 @@ h3 {
 
 #chart-1 {
     /*border: 1px solid black ;*/
-    /*height: 500px;*/
+    height: 500px;
 }
 
 .arc text {
@@ -27,6 +27,13 @@ h3 {
 
 .arc path {
   stroke: #fff;
+}
+
+polyline{
+	opacity: .3;
+	stroke: black;
+	stroke-width: 2px;
+	fill: none;
 }
 
 /*chart 2: map for job opportunities*/

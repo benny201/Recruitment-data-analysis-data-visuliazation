@@ -18,7 +18,7 @@ var y = d3.scaleLinear()
 var z = d3.scaleOrdinal()
     .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00"]);
 
-d3.csv("data.csv", function(d, i, columns) {
+d3.csv("/static/js/data.csv", function(d, i, columns) {
   for (var i = 1, n = columns.length; i < n; ++i) d[columns[i]] = +d[columns[i]];
   return d;
 }, function(error, data) {
@@ -54,12 +54,12 @@ d3.csv("data.csv", function(d, i, columns) {
       .call(d3.axisLeft(y).ticks(null, "s"))
     .append("text")
       .attr("x", 2)
-      // .attr("y", y(y.ticks().pop()) + 0.5)
+      .attr("y", y(y.ticks().pop()) + 0.5)
       .attr("dy", "0.32em")
       .attr("fill", "#000")
       .attr("font-weight", "bold")
       .attr("text-anchor", "start")
-      .text("Population");
+      .text("Number of Companies");
 
   var legend = g.append("g")
       .attr("font-family", "sans-serif")
