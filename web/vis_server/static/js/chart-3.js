@@ -25,7 +25,6 @@ d3.csv("/static/js/data.csv", function(d, i, columns) {
   if (error) throw error;
 
   var keys = data.columns.slice(1);
-
   x0.domain(data.map(function(d) { return d.State; }));
   x1.domain(keys).rangeRound([0, x0.bandwidth()]);
   y.domain([0, d3.max(data, function(d) { return d3.max(keys, function(key) { return d[key]; }); })]).nice();

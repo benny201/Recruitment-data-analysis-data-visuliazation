@@ -52,17 +52,6 @@ function draw_pie_chart(data) {
         .append("textPath")
         .attr("xlink:href", function(d, i) { return "#arc-" + i; })
         .text(function(d) { console.log(d);return d.data.range })
-
-    // g.append("text")
-    //     .attr("dx", 30)
-    //     .attr("dy", -5)
-    //     .append("textPath")
-    //     .attr("xlink:href", function(d, i) {
-    //         return "#arc-" + i;
-    //     })
-    //     .text(function(d) {
-    //         return "这里";
-    //     })
 }
 
 
