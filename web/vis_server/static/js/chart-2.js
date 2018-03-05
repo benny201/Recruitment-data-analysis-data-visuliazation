@@ -990,6 +990,8 @@ var convertData = function (data) {
     return res;
 };
 
+$.ajax()
+
 option = {
     backgroundColor: '#404a59',
     title: {
@@ -1089,16 +1091,6 @@ option = {
 }
 
 get_job_opportunities(data);
-
-function get_chart_2_data() {
-    $.ajax({
-        type:'get',
-        url:'http://127.0.0.1:8000/get_company_population/',
-        success: function (data) {
-            get_job_opportunities(data.data)
-        }
-    })
-}
 
 
 

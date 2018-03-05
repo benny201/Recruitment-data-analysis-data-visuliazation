@@ -5,6 +5,15 @@ function draw_grouped_bar_chart() {
     height = +svg.attr("height") - margin.top - margin.bottom,
     g = svg.append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
+    var tip = d3.tip()
+                  .attr('class', 'd3-tip')
+                  .offset([-10, 0])
+                  .html(function(d) {
+                    return "<strong>"+ d.key+ ":" +"</strong> <span style='color:withe'>" + d.value  +"</span>";
+                  })
+
+    svg.call(tip);
+
 var x0 = d3.scaleBand()
     .rangeRound([0, width])
     .paddingInner(0.1);
@@ -41,7 +50,9 @@ d3.csv("/static/js/data.csv", function(d, i, columns) {
       .attr("y", function(d) { return y(d.value); })
       .attr("width", x1.bandwidth())
       .attr("height", function(d) { return height - y(d.value); })
-      .attr("fill", function(d) { return z(d.key); });
+      .attr("fill", function(d) { return z(d.key); })
+      .on('mouseover', tip.show)
+      .on('mouseout', tip.hide);
 
   g.append("g")
       .attr("class", "axis")

@@ -22,7 +22,7 @@ from vis_site.api import mysql_api
 urlpatterns = [
     # url(r'^admin/', admin.site.urls),
     url(r'index/', views.index),
-
+    url(r'chart4/', views.chart4),
     # company & population data
     url(r'get_company_population/', mysql_api.get_company_population),
     url(r'get_job_opportunities/', mysql_api.get_job_opportunities)

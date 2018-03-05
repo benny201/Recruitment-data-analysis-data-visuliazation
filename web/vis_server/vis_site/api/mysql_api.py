@@ -84,8 +84,6 @@ def get_funding_type(request):
     response['Content-Disposition'] = 'attachment; filename="data.csv"'
     writer = csv.writer(response)
     writer.writerow(['state', '', ''])
-
-
 # mysql
 # funding_type = ['不需要融资', '未融资', '天使轮', 'A轮', 'B轮', 'C轮', 'D轮及以上', '上市公司']
 # cities_list = ['北京', '上海', '深圳', '广州', '杭州', '成都']
@@ -97,3 +95,59 @@ def get_funding_type(request):
 #         cursor.execute(query_sql)
 #         print(cursor.fetchone()[0])
 #     print("\n")
+
+#experience
+# 经验应届毕业生
+# 经验1年以下
+# 经验1 - 3年
+# 经验3 - 5年
+# 经验5 - 10年
+# 经验10年以上
+# 经验不限
+# 经验不限年
+# 经验1 - 3
+def get_experience_salary_data():
+    experience_type = ['经验1-3年', '经验5-10年', '经验3-5年', '经验不限', '经验应届毕业生', '经验1年以下', '经验10年以上', '经验不限年', '经验1-3']
+    result = []
+    result_dict = {
+        '经验应届毕业生': [],
+        '经验1年以下':[],
+        '经验1-3年':[],
+        '经验3-5年':[],
+        '经验5-10年':[],
+        '经验10年以上':[],
+        '经验不限':[]
+    }
+    key_index = 0
+
+    for key in result_dict:
+        for idx in range(1, 101):
+            result_dict[key].append([key_index, idx, 0])
+        key_index += 1
+
+
+
+    for item in experience_type:
+        query_sql = """
+                    select salary from lagou_all_data where experience_requirement=\'{0}\';
+                """.format(item)
+        cursor.execute(query_sql)
+
+        key = item
+        if item == '经验不限年':
+            key = '经验不限'
+        elif item == '经验1-3':
+            key = '经验1-3年'
+
+
+        for res in cursor.fetchall():
+            index = int(res[0]) - 1
+            array = result_dict[key]
+            array[index][2] += 1
+
+    for key in result_dict:
+        print(result_dict[key])
+
+    # print(result_dict['经验应届毕业生'])
+
+get_experience_salary_data()

@@ -5,6 +5,7 @@
     <title>Analysis of Recruitment data</title>
     <link rel="stylesheet" href="/static/css/bootstrap.css">
     <link rel="stylesheet" href="/static/css/main.css">
+    <link rel="stylesheet" href="//rawgithub.com/Caged/d3-tip/master/examples/example-styles.css">
 </head>
 <body>
 
@@ -60,22 +61,74 @@
         <div class="col-md-1"></div>
     </div>
     <div class="row">
-        <div class="col-md-2"></div>
-        <div id="chart-3" class="col-md-8">
+        <div class="col-md-3"></div>
+        <div id="chart-3" class="col-md-6">
             <svg id="chart-3-svg" width="960" height="500"></svg>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+
+    <!--chart - 4-->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h3>Salary distribution of all jobs</h3>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div id="chart-4" class="col-md-6">
+            <svg id="chart-4-svg" width="960" height="500"></svg>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+
+    <!--chart - 5-->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h3>Salary distribution with different experience</h3>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div id="chart-5" class="col-md-8">
+            <!--<svg id="chart-5-svg" width="960" height="500"></svg>-->
         </div>
         <div class="col-md-2"></div>
     </div>
 
-
-
+    <!--chart - 6-->
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-10">
+            <h3>What skills you need if you want to be a JAVA developer in your dream company?</h3>
+        </div>
+        <div class="col-md-1"></div>
+    </div>
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div id="chart-6" class="col-md-6">
+            <svg id="chart-6-svg" width="960" height="500"></svg>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
 
     <script src="/static/js/d3.js"></script>
     <script src="/static/js/echarts.js"></script>
     <script src="/static/js/china.js"></script>
+    <script src="/static/js/d3tooltip.js"></script>
     <script src="/static/js/jquery.js"></script>
     <script src="/static/js/chart-1.js"></script>
     <script src="/static/js/chart-2.js"></script>
     <script src="/static/js/chart-3.js"></script>
+    <script src="/static/js/chart-4.js"></script>
+    <!--<script src="/static/js/chart-4-pie.js"></script>-->
+    <script src="/static/js/chart-5.js"></script>
+    <script src="/static/js/chart-6.js"></script>
+
 </body>
 </html>

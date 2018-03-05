@@ -1,6 +1,12 @@
 // chart 1 - pie chart for companies and population
 // type: less than 15 / 15 - 50 / 50 - 150 / 150 - 500 / 500 - 2000 / more than 2000
 
+// /* Initialize tooltip */
+// tip = d3.tip().attr('class', 'd3-tip').html(function(d) { return d; });
+//
+// /* Invoke the tip in the context of your visualization */
+// vis.call(tip)
+
 function draw_pie_chart(data) {
     var width = $("#chart-1").width(),
         height = 500,
@@ -28,11 +34,25 @@ function draw_pie_chart(data) {
       .append("g")
         .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
+    var tip = d3.tip()
+                  .attr('class', 'd3-tip')
+                  .offset([-10, 0])
+                  .html(function(d) {
+                    return "<strong>Amount:</strong> <span style='color:withe'>" + d.value  +"</span>";
+                  })
+
+    svg.call(tip);
+
     var g = svg.selectAll(".arc")
       .data(pie(data))
     .enter()
         .append("g")
-      .attr("class", "arc");
+      .attr("class", "arc")
+        .attr("id", "arcs")
+        .on('mouseover', tip.show)
+          .on('mouseout', tip.hide);
+
+
 
     g.append("path")
       .attr("d", arc)
@@ -63,7 +83,6 @@ function get_chart_1_data() {
         type:'get',
         url:'http://127.0.0.1:8000/get_company_population/',
         success: function (data) {
-            // console.log(data)
             draw_pie_chart(data.data)
         }
     })

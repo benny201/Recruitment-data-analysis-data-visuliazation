@@ -9,3 +9,8 @@ from django.shortcuts import HttpResponse
 def index(request):
     # return HttpResponse("hello django!")
     return render(request, 'index.html')
+
+def chart4(request):
+    # return HttpResponse("hello django!")
+    return render(request, 'chart4.html')
+

@@ -41,3 +41,11 @@ polyline{
     height: 600px;
     /*width: 60%;*/
 }
+
+/*chart 4*/
+.bar { fill: rgb(152, 171, 197); }
+
+/*chart 5*/
+#chart-5 {
+    height: 600px;
+}
