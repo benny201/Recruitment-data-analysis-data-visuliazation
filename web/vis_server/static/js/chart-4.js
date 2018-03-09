@@ -1,4 +1,5 @@
-// set the dimensions and margins of the graph
+(function() {
+    // set the dimensions and margins of the graph
 var margin = {top: 20, right: 20, bottom: 30, left: 40},
     width = $("#chart-4").width() - margin.left - margin.right,
     height = 500 - margin.top - margin.bottom;
@@ -76,3 +77,4 @@ d3.csv("/static/js/chart_4_data.csv", function(error, data) {
       .call(d3.axisLeft(y));
 
 });
+})();

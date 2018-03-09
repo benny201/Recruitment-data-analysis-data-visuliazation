@@ -4,7 +4,9 @@ import MySQLdb
 import csv
 from django.http import HttpResponse, JsonResponse
 import json
+from django.views.decorators.csrf import csrf_exempt
 # connect mysql database
+import re
 
 conn = MySQLdb.connect("127.0.0.1", "root", "12345", 'lagou', charset="utf8")
 cursor = conn.cursor()
@@ -150,4 +152,38 @@ def get_experience_salary_data():
 
     # print(result_dict['经验应届毕业生'])
 
-get_experience_salary_data()
+# get_experience_salary_data()
+
+@csrf_exempt
+def get_java_requirement(request):
+    # request_data = json.loads(request.body.decode('utf-8'))
+    name = request.POST.get('name')
+
+    query_sql = """
+        
+        select job_desc from lagou_java_data where company_name=\'{0}\';
+        
+    """.format(name)
+
+    # print(name)
+
+    cursor.execute(query_sql)
+    res = cursor.fetchone()
+    data = res[0]
+    pattern = 'Spring|Mybatis|Struts|MySQL|MYSQL|mongodb|Mongodb|redis|Redis|Ajax|JQuery|css|CSS|HTML|html|ibatis|spring|mysql|Linux|Ibatis|Hibernate|hibernate|JavaScript|javascript|Spring boot|SpringMVC|springmvc|springMVC|Memcache|J2EE|Tomcat|tomcat|XML|xml|Hadoop|hadoop|spark|Spark|Storm|storm|JDBC|oracle|Oracle|ORACLE|Spring Cloud|AngularJS|jquery|maven|MAVEN|ajax|JSP|jsp|Jsp|Kafka|ActiveMQ|spring mvc|hbase|Nginx|nginx|Scala|scala|Kotlin|kotlin|Shell|SHELL'
+    skills = re.findall(pattern, data)
+
+    skills = list(set(skills))
+
+    response_data = {"nodes": [], "links": []}
+    response_data["nodes"].append({"id": name, "group": 1})
+    for skill in skills:
+        response_data["nodes"].append({"id": skill, "group": 2})
+        # {"source": "Napoleon", "target": "Myriel", "value": 1}
+        response_data["links"].append({"source": name, "target": skill, "value": 10})
+
+
+    return JsonResponse({
+        'data': response_data
+    })
+

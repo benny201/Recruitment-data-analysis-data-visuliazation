@@ -77,9 +77,9 @@ DOWNLOADER_MIDDLEWARES = {
 # Configure item pipelines
 # See https://doc.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-   # 'Recruitment_data_spider.pipelines.RecruitmentDataSpiderPipeline': 300,
-   # 'Recruitment_data_spider.pipelines.MySqlPipeline': 1,
-   'Recruitment_data_spider.pipelines.LagouAllJobPipeline': 1,
+   # 'Recruitment_data_spider.pipelines.RecruitmentDataSpiderPipeline': 1,
+   'Recruitment_data_spider.pipelines.MySqlPipeline': 1,
+   # 'Recruitment_data_spider.pipelines.LagouAllJobPipeline': 1,
 
 }
 

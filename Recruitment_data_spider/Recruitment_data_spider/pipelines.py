@@ -22,7 +22,7 @@ class MySqlPipeline(object):
 
     def process_item(self, item, spider):
         insert_sql = """
-                    insert into lagou_data(job_id, url, job_cn_name, company_name, salary, city_cn_name,
+                    insert into lagou_java_data(job_id, url, job_cn_name, company_name, salary, city_cn_name,
                     experience_requirement, degree_requirement, financing_situation, job_desc, population)
                     VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s) ON DUPLICATE KEY UPDATE job_desc=job_desc
         """

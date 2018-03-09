@@ -16,11 +16,11 @@ class LagouSpider(scrapy.Spider):
     start_urls = [
                 # 'https://www.lagou.com/zhaopin/PHP/?labelWords=label',
                 #   'https://www.lagou.com/zhaopin/C++/?labelWords=label',
-                  # 'https://www.lagou.com/zhaopin/Java/',
+                  'https://www.lagou.com/zhaopin/Java/',
                   # 'https://www.lagou.com/zhaopin/Python/?labelWords=label',
                   # 'https://www.lagou.com/zhaopin/jiqixuexi/?labelWords=label',
                   # 'https://www.lagou.com/zhaopin/shenduxuexi/?labelWords=label',
-                  'https://www.lagou.com/jobs/list_前端?labelWords=&fromSearch=true&suginput=',
+                  # 'https://www.lagou.com/jobs/list_前端?labelWords=&fromSearch=true&suginput=',
                   # 'https://www.lagou.com/jobs/list_%E5%90%8E%E7%AB%AF?labelWords=&fromSearch=true&suginput='
                  ]
 

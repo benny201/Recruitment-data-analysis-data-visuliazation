@@ -25,6 +25,6 @@ urlpatterns = [
     url(r'chart4/', views.chart4),
     # company & population data
     url(r'get_company_population/', mysql_api.get_company_population),
-    url(r'get_job_opportunities/', mysql_api.get_job_opportunities)
-
+    url(r'get_job_opportunities/', mysql_api.get_job_opportunities),
+    url(r'get_java_requirement/', mysql_api.get_java_requirement)
 ]
